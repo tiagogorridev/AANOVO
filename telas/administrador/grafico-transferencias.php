@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../../assets/logo.png" type="Alegrinho">
-    <link rel="stylesheet" href="../../css/global.css">
-    <link rel="stylesheet" href="../../css/pagina-ongs.css">
     <title>Novo Começo</title>
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/grafico-transferencias-1.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
@@ -22,7 +22,9 @@
                 </svg>
             </button>
             <div>
-                <img class="img-logo" id="logo" src="../../assets/logo.png" alt="Logo">
+                <a href="../telas/index.php">
+                    <img class="img-logo" id="logo" src="../../assets/logo.png" alt="Logo">
+                </a>
             </div>
             <div class="nav-links" id="nav-links">
                 <ul>
@@ -48,75 +50,29 @@
             </div>
         </nav>
     </header>
-
     <main>
-        <section>
-            <div class="banner">
-                <img class="img-banner" src="../../assets/cc871fd6-b19d-4b0f-ba7b-a5481a69996b.jpg">
+        <h1 class="title">Gráfico de transferências</h1>
+        <div class="container">
+            <div class="filters">
+                <label>Data Inicial:
+                    <input type="date" id="data_inicio" value="<?php echo date('Y-m-d', strtotime('-30 days')); ?>">
+                </label>
+                <label style="margin-left: 20px;">Data Final:
+                    <input type="date" id="data_fim" value="<?php echo date('Y-m-d'); ?>">
+                </label>
+                <button onclick="atualizarGrafico()" style="margin-left: 20px;">Filtrar</button>
             </div>
-            <div class="grid-ongs">
-                <div class="ong">
-                    <div class="img-cards">
-                        <img class="img-card" src="../../assets/imagem-ong.jpg">
-                    </div>
-                    <div class="btns-card">
-                        <a class="btn-card" href="pagina-da-ong-1.php">Doar</a>
-                    </div>
-                </div>
-
-                <div class="ong">
-                    <div class="img-cards">
-                        <img class="img-card" src="../../assets/imagem-ong.jpg">
-                    </div>
-                    <div class="btns-card">
-                        <a class="btn-card" href="pagina-da-ong-2.php">Doar</a>
-                    </div>
-                </div>
-                <div class="ong">
-                    <div class="img-cards">
-                        <img class="img-card" src="../../assets/imagem-ong.jpg">
-                    </div>
-                    <div class="btns-card">
-                        <a class="btn-card" href="pagina-da-ong-3.php">Doar</a>
-                    </div>
-                </div>
-                <div class="ong">
-                    <div class="img-cards">
-                        <img class="img-card" src="../../assets/imagem-ong.jpg">
-                    </div>
-                    <div class="btns-card">
-                        <a class="btn-card" href="pagina-da-ong-4.php">Doar</a>
-                    </div>
-                </div>
-                <div class="ong">
-                    <div class="img-cards">
-                        <img class="img-card" src="../../assets/imagem-ong.jpg">
-                    </div>
-                    <div class="btns-card">
-                        <a class="btn-card" href="pagina-da-ong-5.php">Doar</a>
-                    </div>
-                </div>
-                <div class="ong">
-                    <div class="img-cards">
-                        <img class="img-card" src="../../assets/imagem-ong.jpg">
-                    </div>
-                    <div class="btns-card">
-                        <a class="btn-card" href="pagina-da-ong-6.php">Doar</a>
-                    </div>
-                </div>
+            <div>
+                <canvas id="meuGrafico"></canvas>
             </div>
-
-        </section>
+        </div>
     </main>
-
-
 
     <footer>
         <div class="footer">
             <div class="img-footer-start">
                 <img class="boneco-footer" class="img-footer" src="../../assets/img-footer.png">
             </div>
-
             <div class="socias">
                 <div class="icons-col-1">
                     <div class="social-footer">
@@ -144,8 +100,9 @@
             </div>
         </div>
     </footer>
-    <script src="../../js/header.js"></script>
 
+    <script src="../../js/header.js"></script>
+    <script src="../../js/grafico.js"></script>
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
@@ -156,7 +113,6 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-
 
 </body>
 

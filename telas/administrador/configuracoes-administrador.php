@@ -81,7 +81,7 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
         <div class="action-buttons">
             <button class="action-button" onclick="window.location.href='../usuarios/alterar-senha.php'">Alterar Senha</button>
             <button class="action-button" onclick="window.location.href='historico-transferencia-adm.php'">Histórico Transferências</button>
-            <button class="action-button" onclick="window.location.href='x'">Gráfico Transferências</button>
+            <button class="action-button" onclick="window.location.href='grafico-transferencias.php'">Gráfico Transferências</button>
             <button class="action-button" onclick="window.location.href='../../logout.php'">Logout</button>
         </div>
     </main>
